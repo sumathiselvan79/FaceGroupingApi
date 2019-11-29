@@ -13,8 +13,10 @@ def delete_folder(userid):
 
 def get_connection(bucketName="phosphene-users"):
     try:
-        s3_client= boto3.client('s3')
-        s3_resource = boto3.resource('s3')
+        s3_client= boto3.client('s3', aws_access_key_id=os.getenv("ACCESS_KEY"),
+    aws_secret_access_key=("SECRET_KEY"))
+        s3_resource = boto3.resource('s3', aws_access_key_id=os.getenv("ACCESS_KEY"),
+    aws_secret_access_key=("SECRET_KEY"))
         bucket = s3_resource.Bucket(bucketName) 
         return s3_client,s3_resource,bucket
     except Exception as e:
