@@ -29,7 +29,8 @@ import os
 #     global graph
 #     graph = tf.get_default_graph()
 #loading the model from keras-facenet folder
-graph = tf.get_default_graph()
+# graph = tf.get_default_graph()
+graph = tf.Graph()
 model = load_model('./keras-facenet/model/facenet_keras.h5')
 #MTCNN loading 
 detector = MTCNN()
